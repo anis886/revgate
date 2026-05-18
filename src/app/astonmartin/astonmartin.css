@@ -1,0 +1,139 @@
+.navbar-toggler{
+    border: none;
+}
+.navbar-brand{
+    position: relative;
+}
+.navbar-brand::after{
+    content: "AUTOMOTIVE";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    font-size: 8px;
+    color: red;
+}
+.nav-link{
+    position: relative;
+    transition: 0.5s;
+    color: black;
+    margin-top: 10px;
+    border-radius: 8px;
+    padding-left: 10px;
+    font-size: 1.30rem;
+}
+.nav-link:hover{
+    transform: scale(1.05);
+    border: 1px solid red;
+    border-radius: 8px;
+}
+
+/* ========== MOBILE FIXES ========== */
+@media (max-width: 991px) {
+
+.nav-justified{
+    position: relative;
+    transition: 0.5s;
+    color: black;
+    text-decoration: none;
+    font-size: 35px;
+}
+.navbar-brand{
+    position: relative;
+    font-size: 50px;
+}
+.navbar-brand::after{
+    content: "AUTOMOTIVE";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    font-size: 15px;
+    color: red;
+}
+.navbar-toggler-icon{
+    font-size: 50px;
+}
+}
+.container-fluid .logoporsche{
+height: 70px;
+position: absolute;
+left: 50%;
+transform: translate(-50px);
+}
+
+
+.landing{
+    height: 100vh;
+    background-color: #00a288;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    animation: vanish 1s 1.5s forwards ease;
+}
+
+.content img{
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes vanish {
+    to{
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+
+.landing-two img{
+    height: 100vh;
+    object-fit: cover;
+    width: 100%;
+
+    opacity: 0;
+    animation: appear forwards ease;
+}
+
+@keyframes appear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.landing-two .content-two{
+    position: absolute;
+    top: 60%;
+    left: 10%;
+    opacity: 0;
+    animation: appear forwards ease;
+}
+
+.landing-two .content-two .small{
+    color: white;
+    font-size: 0.9rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.landing-two .content-two p{
+    color: white;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.landing-two .content-two a{
+    display: inline-block;
+    padding: 15px 50px;
+    background-color: white;
+    color: #00665e;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.landing-two .content-two a:hover{
+    background-color: #e1ebea;
+}

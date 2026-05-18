@@ -1,0 +1,200 @@
+.navbar-toggler{
+    border: none;
+}
+.navbar-brand{
+    position: relative;
+}
+.navbar-brand::after{
+    content: "AUTOMOTIVE";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    font-size: 8px;
+    color: red;
+}
+.nav-link{
+    position: relative;
+    transition: 0.5s;
+    color: black;
+    margin-top: 10px;
+    border-radius: 8px;
+    padding-left: 10px;
+    font-size: 1.30rem;
+}
+.nav-link:hover{
+    transform: scale(1.05);
+    border: 1px solid red;
+    border-radius: 8px;
+}
+
+/* ========== MOBILE FIXES ========== */
+@media (max-width: 991px) {
+
+.nav-justified{
+    position: relative;
+    transition: 0.5s;
+    color: black;
+    text-decoration: none;
+    font-size: 35px;
+}
+.navbar-brand{
+    position: relative;
+    font-size: 50px;
+}
+.navbar-brand::after{
+    content: "AUTOMOTIVE";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    font-size: 15px;
+    color: red;
+}
+.navbar-toggler-icon{
+    font-size: 50px;
+}
+}
+.container-fluid .logoporsche{
+height: 70px;
+position: absolute;
+top: 5px;
+left: 50%;
+transform: translate(-50px);
+}
+
+
+.landing{
+  height: 100vh;
+  width: max-content;
+  width: 100%;
+  background-image: url("../../assets/assetsbmwbackground.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.landing .content{
+  position: absolute;
+  top: 95%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.landing .content a{
+    background-color: #1c69d4;
+    border: none;
+    border-radius: 0px;
+}
+.landing .content a:hover{
+    color: white;
+  background-color: #155ab6;
+}
+
+.hero-section {
+    margin-top: 50px;
+  height: 500px;
+  background: url('../../assets/assetsbmw5seriesbackground.webp') no-repeat center center/cover;
+  position: relative;
+}
+
+/* Dark overlay (زي اللي في الصورة) */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8) 20%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Content فوق الصورة */
+.hero-section .content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+/* Title */
+.title {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #1c69d4;
+  border: none;
+  border-radius: 0px;
+}
+
+.btn-primary:hover {
+  background-color: #155ab6;
+}
+
+.btn-outline-light {
+    border-radius: 0px;
+  border: 1px solid #fff;
+}
+
+.btn-outline-light:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+
+.hero-section-two {
+    margin-top: 50px;
+  height: 500px;
+  background: url('../../assets/assets3seriesbackground.webp') no-repeat center center/cover;
+  position: relative;
+}
+
+/* Dark overlay (زي اللي في الصورة) */
+.hero-section-two::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8) 20%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Content فوق الصورة */
+.hero-section-two .content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+/* Title */
+.title {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #1c69d4;
+  border: none;
+  border-radius: 0px;
+}
+
+.btn-primary:hover {
+  background-color: #155ab6;
+}
+
+.btn-outline-light {
+    border-radius: 0px;
+  border: 1px solid #fff;
+}
+
+.btn-outline-light:hover {
+  background-color: #fff;
+  color: #000;
+}

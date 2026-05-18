@@ -1,0 +1,81 @@
+
+<nav class="navbar bg-white fixed-top">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      <a class="navbar-brand ms-3" href="#">Revgate</a>
+    </button>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="#">New Beasts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/main/performance" data-bs-dismiss="offcanvas" href="#">Performance</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/main/electric" data-bs-dismiss="offcanvas" href="#">Electric</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/main/luxury" data-bs-dismiss="offcanvas" href="#">Luxury</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/main/suv" data-bs-dismiss="offcanvas" href="#">SUV</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Sidebar -->
+    <div class="col-lg-3 sidebar">
+
+
+      <h6 class="mt-4">Regions</h6>
+      <div class="form-check" *ngFor="let type of ['Europe', 'Japan', 'Korea', 'China', 'USA']">
+        <input class="form-check-input" type="checkbox" [value]="type" (change)="onBrandTypeChange($event)">
+        <label class="form-check-label">{{type}}</label>
+      </div>
+
+
+    </div>
+
+    <!-- Cars -->
+    <div class="parent-cards col-md-9 offset-md-2 col-lg-9 offset-lg-2">
+      <h3 class="car-brands">Car Brands</h3>
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4" *ngFor="let car of filteredCars">
+          <div class="card car-card h-100">
+            <a [routerLink]="['/main', car.route]" class="car-item">
+                <img [src]="car.image" class="car-img">
+              <div class="card-body">
+                <h5 class="card-title">{{car.name}}</h5>
+                <p class="card-text">{{car.brandType}}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

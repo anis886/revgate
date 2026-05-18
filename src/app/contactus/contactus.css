@@ -1,0 +1,105 @@
+.footer-section {
+  background-color: black;
+  padding: 60px 0 20px;
+  color: #2c3e50;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-logo {
+  width: 140px;
+  height: 50px;
+  font-size: 22px;
+}
+
+.footer-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #5c6b7a;
+}
+
+.footer-title {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.footer-links,
+.footer-contact {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li,
+.footer-contact li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #5c6b7a;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: white;
+  padding-left: 5px;
+}
+
+.social-icons span {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  margin-right: 8px;
+}
+
+.btn-subscribe {
+  background-color: #9aa3af;
+  border: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.btn-subscribe:hover {
+  background-color: #6b7280;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ccc;
+  font-size: 14px;
+  color: #5c6b7a;
+}
+
+.footer-bottom a {
+  text-decoration: none;
+  color: #5c6b7a;
+  transition: 0.3s;
+}
+
+.footer-bottom a:hover {
+  color: black;
+}
+.social-icons i{
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: 0.3s;
+}
+.social-icons i:hover{
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  
+}
+
+@media (max-width: 991px) {
+
+    .footer-logo,.footer-text,.social-icons,.footer-title,.links,.footer-title,.footer-contact,.footer-bottom{
+      color: white;
+      font-size: 30px;
+    }
+
+}

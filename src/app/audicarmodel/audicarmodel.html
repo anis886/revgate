@@ -1,0 +1,117 @@
+
+<nav class="navbar bg-white fixed-top">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      <a class="navbar-brand ms-3" href="#">Revgate</a>
+    </button>
+    <img class="logoporsche" src="assets/assetsaudilogo.png" alt="Audi Logo">
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="#">New Beasts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/main/performance" data-bs-dismiss="offcanvas" href="#">Performance</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/main/electric" data-bs-dismiss="offcanvas" href="#">Electric</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/main/luxury" data-bs-dismiss="offcanvas" href="#">Luxury</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/main/suv" data-bs-dismiss="offcanvas" href="#">SUV</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Sidebar -->
+    <div class="col-lg-3 sidebar">
+
+      
+
+      <h6>Body model</h6>
+      <div class="form-check" *ngFor="let type of ['A8','A3','A4','A5','Q2','Q7','Q3','Q5','Q8','Q6 e-tron','RS3','e-tron GT','R8']">
+        <input class="form-check-input" type="checkbox" [value]="type" (change)="onBodyTypeChange($event)">
+        <label class="form-check-label">{{type}}</label>
+      </div>
+
+      <hr>
+      <h6>Transmission</h6>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Automatic" (change)="onTransmissionChange($event)">
+        <label class="form-check-label">Automatic</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Manual" (change)="onTransmissionChange($event)">
+        <label class="form-check-label">Manual</label>
+      </div>
+      <hr>
+      <h6>Year</h6>
+      <select class="form-select" [(ngModel)]="selectedYear" (change)="filterCars()">
+        <option value="all">All Years</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+      </select>
+
+      <hr>
+      </div>
+
+      
+
+    <!-- Cars -->
+    <div class="col-md-9 offset-md-2 col-lg-9 offset-lg-2">
+      <h3 class="mb-4 car-model">Car Models</h3>
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4" *ngFor="let car of filteredCars">
+          <div class="card car-card h-100">
+            <span class="badge bg-light text-dark fuel-badge">{{car.fuel}}</span>
+            <img [src]="car.image" class="car-img">
+            <div class="card-body">
+              <h5 class="card-title">{{car.name}}</h5>
+              <p><b>{{car.power}} PS</b><br>Power (PS)</p>
+              <p><b>{{car.acceleration}}</b><br>Acceleration 0-100 km/h</p>
+              <p><b>{{car.topSpeed}} km/h</b><br>Top speed</p>
+              <p><b>{{car.year}}</b><br>Year</p>
+
+              <a class="small text-decoration-underline fw-medium text-black">Technical data and standard equipment</a>
+              <button class="btn btn-dark w-100 mt-3">Configure</button>
+              <div class="form-check mt-2">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">Compare</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+

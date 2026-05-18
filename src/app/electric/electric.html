@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Sidebar -->
+    <div class="col-lg-3 sidebar">
+
+
+      <h6 class="mt-4">Regions</h6>
+      <div class="form-check" *ngFor="let type of ['Europe', 'Korea', 'China', 'USA']">
+        <input class="form-check-input" type="checkbox" [value]="type" (change)="onBrandTypeChange($event)">
+        <label class="form-check-label">{{type}}</label>
+      </div>
+
+
+    </div>
+
+    <!-- Cars -->
+    <div class="col-md-9 offset-md-2 col-lg-9 offset-lg-2">
+      <h3 class="car-brands">Car Brands</h3>
+      <div class="row g-4">
+        <div class="col-md-6 col-xl-4" *ngFor="let car of filteredCars">
+          <div class="card car-card h-100">
+            <a [routerLink]="['/main', car.route]" class="car-item">
+                <img [src]="car.image" class="car-img">
+              <div class="card-body">
+                <h5 class="card-title">{{car.name}}</h5>
+                <p class="card-text">{{car.brandType}}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

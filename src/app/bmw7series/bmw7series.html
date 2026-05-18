@@ -1,0 +1,184 @@
+<nav class="navbar bg-white fixed-top">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      <a class="navbar-brand ms-3 bg-transparent" href="#">Revgate</a>
+    </button>
+    <img class="logoporsche" src="assets/assetsbmwlogo.png" alt="">
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="#">New Beasts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/main/performance" data-bs-dismiss="offcanvas" href="#">Performance</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/main/electric" data-bs-dismiss="offcanvas" href="#">Electric</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/main/luxury" data-bs-dismiss="offcanvas" href="#">Luxury</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/main/suv" data-bs-dismiss="offcanvas" href="#">SUV</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+  <div class="landing">
+    <h1>7 Series</h1>
+    <div class="content">
+      <h3>Power</h3>
+      <p>659 hp</p>
+      <h3>0-100 km/h</h3>
+      <p>3.7 s</p>
+      <h3>Max Speed</h3>
+      <p>250 km/h </p>
+    </div>
+    <div class="gallery">
+
+        <img src="assets/assetsfrontbrown.webp" alt="">
+
+        <img src="assets/assetsfrontright.webp" alt="">
+
+        <img src="assets/assetsbackleft.webp" alt="">
+
+      </div>
+    </div>
+
+
+<div class="navs">
+  <div class="nav-details justify-content-center d-flex align-items-center">
+
+    <a class="ps-5" (click)="scrollTo('seriescolor')">color</a> 
+    <a class="ps-5" (click)="scrollTo('exterior')">Exterior</a> 
+    <a class="ps-5" (click)="scrollTo('interior')">Gallery</a> 
+    <a class="ps-5" (click)="scrollTo('3d')">3D View</a>
+
+  </div>
+</div>
+
+
+
+  <div class="seriescolor" id="seriescolor">
+
+  <h1 class="p-5 text-center">The New 7 Series</h1>
+
+  <div class="colors d-flex justify-content-between">
+
+    <!-- الصورة -->
+    <img [src]="img" class="img" alt="car">
+
+    <div class="cards">
+      <img src="assets/assetsm.png" alt="">
+      <h2 class="model">BMW 7 SERIES M Model</h2>
+      <p>Fully electric. Full power. Or as a plug-in hybrid electric vehicle with the combined power of two drive systems.</p>
+      <span (click)="car('assets/black.png')" class="black"></span>
+      <span (click)="car('assets/white.png')" class="white"></span>
+      <span (click)="car('assets/red.png')" class="red"></span>
+      <span (click)="car('assets/brown.png')" class="brown"></span>
+      <span (click)="car('assets/blackgray.png')" class="gray"></span>
+      <span (click)="car('assets/blue.png')" class="blue"></span>
+      <span (click)="car('assets/bmw740idriverside.png')" class="Charcoalbrown"></span>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+  <div class="exterior" id="exterior">
+    <div class="thenew">
+      <h1 class="p-5 text-center">Exterior</h1>
+    </div>
+    <img src="assets/bmw740idriverside.png" alt="">
+    <img src="assets/bmw740ibackview.png" alt="">
+    <img src="assets/bmw740ipassengerside.png" alt="">
+    <img src="assets/bmw740ifrontview.png" alt="">
+  </div>
+
+
+
+  <div class="interior container-fluid" id="interior">
+    <div class="row align-items-center">
+
+    <!-- Text -->
+      <div class="col-lg-5 text-content">
+        <h2>Keep everything in sight.</h2>
+        <p>
+          The large BMW Curved Display shows you all the relevant
+          information clearly and in high resolution. Every function
+          works intuitively by voice and touch control.
+        </p>
+      </div>
+
+    <!-- Image -->
+    <div class="col-lg-7 image-content">
+      <img src="assets/interior.webp" alt="BMW Interior">
+    </div>
+
+  </div>
+</div>
+
+
+<section class="features-section container">
+  <div class="row g-4">
+
+    <!-- Card 1 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="feature-card">
+        <img src="assets/screen.webp" alt="">
+        <h3>Rear-seat entertainment writ large.</h3>
+        <p>
+          Films belong on the big screen. The 31.3” BMW Theatre Screen with integrated Amazon Fire TV
+          offers the perfect rear-seat cinema experience on the road.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="feature-card">
+        <img src="assets/sa2f.webp" alt="">
+        <h3>Sky Lounge panoramic glass sunroof.</h3>
+        <p>
+          The Sky Lounge panoramic glass sunroof creates a generous sense of space.
+          Thanks to LED-based light design, you can enjoy a captivating atmosphere.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="feature-card">
+        <img src="assets/backpassengerseat.webp" alt="">
+        <h3>Sit back and enjoy.</h3>
+        <p>
+          Executive Lounge Seating offers you a comfortable and restful position
+          as a rear-seat passenger behind the driver with continuous leg rest.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,107 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: black;
+    flex-wrap: wrap;
+}
+.container .cards{
+    margin-top: 50px;
+    width: 600px;
+    height: 600px;
+    position: relative;
+    border-radius: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.container .cards p{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 80%;
+    left: 20px;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.518);
+}
+.container .cards .footer{
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container .cards .footer h2{
+    font-size: 15px;
+}
+.container .cards .footer .btn{
+    position: absolute;
+    top: 150%;
+    left: 0;
+    background-color: transparent;
+    border: transparent;
+    color: white;
+    border: black;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+    font-size: 14px;
+}
+.container .cards .footer .btn:hover{
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.container .cards i{
+    margin-left: 10px;
+}
+.container .cards img{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container .cards .logo{
+    position: absolute;
+    z-index: 1;
+    object-fit: contain;
+    height: 45px;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%);
+    color: gray;
+}
+.container .cards:hover{
+    width: 650px;
+}
+.container .cards:hover .btn{
+    opacity: 1;
+}
+
+@media (max-width: 991px) {
+
+    .container{
+        flex-direction: column;
+    }
+    .container .cards{
+        width: 90%;
+        height: 400px;
+    }
+    .container .cards:hover{
+        width: 90%;
+    }
+   .container .cards p{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 70%;
+    left: 20px;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.518);
+    }
+
+}

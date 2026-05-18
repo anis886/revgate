@@ -1,0 +1,25 @@
+.landing{
+  position: relative;
+  background-image: url('../../assets/download\ \(1\).jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.content h1{
+  font-size: 4rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.content h4{
+  font-size: 2.5rem;
+  color: white;
+}

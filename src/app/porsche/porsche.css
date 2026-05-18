@@ -1,0 +1,194 @@
+
+.navbar-toggler{
+    border: none;
+}
+.navbar-brand{
+    position: relative;
+}
+.navbar-brand::after{
+    content: "AUTOMOTIVE";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    font-size: 8px;
+    color: red;
+}
+.nav-link{
+    position: relative;
+    transition: 0.5s;
+    color: black;
+    margin-top: 10px;
+    border-radius: 8px;
+    padding-left: 10px;
+    font-size: 1.30rem;
+}
+.nav-link:hover{
+    transform: scale(1.05);
+    border: 1px solid red;
+    border-radius: 8px;
+}
+
+/* ========== MOBILE FIXES ========== */
+@media (max-width: 991px) {
+
+.nav-justified{
+    position: relative;
+    transition: 0.5s;
+    color: black;
+    text-decoration: none;
+    font-size: 35px;
+}
+.navbar-brand{
+    position: relative;
+    font-size: 50px;
+}
+.navbar-brand::after{
+    content: "AUTOMOTIVE";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    font-size: 15px;
+    color: red;
+}
+.navbar-toggler-icon{
+    font-size: 50px;
+}
+}
+
+
+.navbar .logoporsche{
+    position: absolute;
+    left: 50%;
+    height: 30px;
+    transform: translateX(-50%);
+}
+ 
+.landing video{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+.landing .content{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+.landing .content h1{
+    font-size: 6.5rem;
+    color: #fff;
+    font-family:inherit;
+}
+
+.landing .content a{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.landing .content a:hover{
+    background-color: rgba(255, 255, 255, 0.063);
+}
+.container{
+    max-width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: black;
+    flex-wrap: wrap;
+}
+.container .cards{
+    margin-top: 50px;
+    width: 600px;
+    height: 600px;
+    position: relative;
+    border-radius: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.container .cards p{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 80%;
+    left: 20px;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.518);
+}
+.container .cards .footer{
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container .cards .footer h2{
+    font-size: 15px;
+}
+.container .cards .footer .btn{
+    position: absolute;
+    top: 150%;
+    left: 0;
+    background-color: transparent;
+    border: transparent;
+    color: white;
+    border: black;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+    font-size: 14px;
+}
+.container .cards .footer .btn:hover{
+    background-color: rgba(255, 255, 255, 0.063);
+}
+.container .cards i{
+    margin-left: 10px;
+}
+.container .cards img{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container .cards .logo{
+    position: absolute;
+    z-index: 1;
+    object-fit: contain;
+    height: 45px;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%);
+    color: gray;
+}
+.container .cards:hover{
+    width: 650px;
+}
+
+@media (max-width: 991px) {
+
+    .container{
+        flex-direction: column;
+    }
+    .container .cards{
+        width: 90%;
+        height: 400px;
+    }
+    .container .cards:hover{
+        width: 90%;
+    }
+   .container .cards p{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 70%;
+    left: 20px;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.518);
+    }
+
+} 
