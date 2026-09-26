@@ -1,65 +1,9 @@
-.navbar-toggler{
-    border: none;
+:host {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
-.navbar-brand{
-    position: relative;
-}
-.navbar-brand::after{
-    content: "AUTOMOTIVE";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    font-size: 8px;
-    color: red;
-}
-.nav-link{
-    position: relative;
-    transition: 0.5s;
-    color: black;
-    margin-top: 10px;
-    border-radius: 8px;
-    padding-left: 10px;
-    font-size: 1.30rem;
-}
-.nav-link:hover{
-    transform: scale(1.05);
-    border: 1px solid red;
-    border-radius: 8px;
-}
-
-/* ========== MOBILE FIXES ========== */
-@media (max-width: 991px) {
-
-.nav-justified{
-    position: relative;
-    transition: 0.5s;
-    color: black;
-    text-decoration: none;
-    font-size: 35px;
-}
-.navbar-brand{
-    position: relative;
-    font-size: 50px;
-}
-.navbar-brand::after{
-    content: "AUTOMOTIVE";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    font-size: 15px;
-    color: red;
-}
-.navbar-toggler-icon{
-    font-size: 50px;
-}
-}
-.container-fluid .logoporsche{
-height: 70px;
-position: absolute;
-left: 50%;
-transform: translate(-50px);
-}
-
 
 .landing{
     height: 100vh;
@@ -73,9 +17,11 @@ transform: translate(-50px);
 .content img{
     height: 50px;
     position: absolute;
+    z-index: 11;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    animation: vanish 0.8s 1.5s forwards ease;
 }
 
 @keyframes vanish {
@@ -91,9 +37,8 @@ transform: translate(-50px);
     height: 100vh;
     object-fit: cover;
     width: 100%;
-
     opacity: 0;
-    animation: appear forwards ease;
+    animation: appear 1s ease forwards;
 }
 
 @keyframes appear {
@@ -110,7 +55,7 @@ transform: translate(-50px);
     top: 60%;
     left: 10%;
     opacity: 0;
-    animation: appear forwards ease;
+    animation: appear 1s ease forwards;
 }
 
 .landing-two .content-two .small{
@@ -136,4 +81,90 @@ transform: translate(-50px);
 
 .landing-two .content-two a:hover{
     background-color: #e1ebea;
+}
+.second-carousel{
+    height: 100%;
+}
+#carouselExampleCaptions .second-carousel video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.carousel-control-prev{
+  /* width: 20px; */
+  left: 20px;
+}
+
+.carousel-control-prev-icon{
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  padding: 25px;
+  background-size: 50%;
+}
+.carousel-control-next{
+  /* width: 20px; */
+  right: 20px;
+}
+
+.carousel-control-next-icon{
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  padding: 25px;
+  background-size: 50%;
+}
+.carousel-caption h5{
+    font-size: 0.rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.carousel-caption p{
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 991.98px) {
+  .landing-two .content-two {
+    top: auto;
+    bottom: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(92%, 520px);
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .landing-two .content-two p {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    line-height: 1.2;
+  }
+
+  .landing-two .content-two a {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+  }
+
+  .carousel-caption p {
+    font-size: clamp(1.25rem, 5vw, 2rem);
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .landing-two img {
+    height: min(100vh, 100dvh);
+  }
+
+  .carousel-caption {
+    left: 5%;
+    right: 5%;
+    bottom: 1.5rem;
+  }
+
+  .carousel-caption p {
+    font-size: clamp(1.1rem, 6vw, 1.5rem);
+  }
 }

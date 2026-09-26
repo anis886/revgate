@@ -20,9 +20,10 @@ interface Car {
   styleUrl: './performance.css',
 })
 export class Performance implements OnInit {
-  
   carId!: string;
   selectedBrandTypes: string[] = [];
+  searchText = '';
+  isSidebarOpen = false;
   
   constructor(private route: ActivatedRoute) {}
   
@@ -408,21 +409,60 @@ export class Performance implements OnInit {
   ];
   
   get filteredCars(): Car[] {
-    return this.cars.filter(car => 
-      (this.selectedBrandTypes.length === 0 || this.selectedBrandTypes.includes(car.brandType))
-    );
+    return this.cars.filter(car => {
+      const searchMatch =
+        this.searchText === '' ||
+        car.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        car.brandType.toLowerCase().includes(this.searchText.toLowerCase());
+
+      const regionMatch =
+        this.selectedBrandTypes.length === 0 ||
+        this.selectedBrandTypes.includes(car.brandType);
+
+      return searchMatch && regionMatch;
+    });
   }
-  
+
+  get activeFiltersCount(): number {
+    let count = 0;
+    if (this.searchText !== '') count++;
+    if (this.selectedBrandTypes.length > 0) count++;
+    return count;
+  }
+
   // Handlers for checkboxes
   onBrandTypeChange(event: Event) {
     const target = event.target as HTMLInputElement;
     const value = target.value;
     if (target.checked) {
-      this.selectedBrandTypes.push(value);
+      if (!this.selectedBrandTypes.includes(value)) {
+        this.selectedBrandTypes.push(value);
+      }
     } else {
       this.selectedBrandTypes = this.selectedBrandTypes.filter(t => t !== value);
     }
   }
+
+  toggleBrandType(type: string) {
+    if (this.selectedBrandTypes.includes(type)) {
+      this.selectedBrandTypes = this.selectedBrandTypes.filter(t => t !== type);
+    } else {
+      this.selectedBrandTypes.push(type);
+    }
   }
+
+  removeBrandType(region: string) {
+    this.selectedBrandTypes = this.selectedBrandTypes.filter(r => r !== region);
+  }
+
+  clearAllFilters() {
+    this.searchText = '';
+    this.selectedBrandTypes = [];
+  }
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+}
 
 

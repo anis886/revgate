@@ -1,63 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-
-interface Car {
-  name: string;
-  image: string;
-  power: number;
-  acceleration: string;
-  topSpeed: number;
-  fuel: string;
-  bodyType: string;
-  transmission: string;
-  driveTrain: string;
-  country: string;
-  brand: string;
-  year: number;
-  price: number;
-  horsepower: number;
-}
-
+import { Component } from '@angular/core';
+import { CarFilterListComponent, Car } from '../shared/car-filter-list/car-filter-list';
 
 @Component({
   selector: 'app-audicarmodel',
-  imports: [RouterLink, FormsModule, CommonModule],
+  standalone: true,
+  imports: [CarFilterListComponent],
   templateUrl: './audicarmodel.html',
   styleUrl: './audicarmodel.css',
 })
-export class Audicarmodel implements OnInit {
-  selectedId: number | null = null;
-  carId!: string;
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit() {
-    this.carId = this.route.snapshot.paramMap.get('id')!;
-    console.log(this.carId);
-    this.route.params.subscribe(params => {
-      this.selectedId = +params['id'];
-      // You can add logic here to filter or select a car based on id
-    });
-  }
-
-  // ================= DATA =================
+export class Audicarmodel {
   cars: Car[] = [
     {
       name: 'Audi A3',
       image: 'assets/assetsa3.webp',
       power: 201,
       acceleration: '7.1 s',
-      topSpeed: 155,
+      topSpeed: 210,
       fuel: 'Petrol',
       bodyType: 'A3',
-      transmission: 'Manual',
+      transmission: 'Automatic',
       driveTrain: 'FWD',
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 3500000,
+      price: 36000,
       horsepower: 201
     },
     {
@@ -65,87 +31,87 @@ export class Audicarmodel implements OnInit {
       image: 'assets/assetsa3sportback.webp',
       power: 201,
       acceleration: '7.1 s',
-      topSpeed: 155,
+      topSpeed: 210,
       fuel: 'Petrol',
       bodyType: 'A3',
-      transmission: 'Manual',
+      transmission: 'Automatic',
       driveTrain: 'FWD',
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 3500000,
+      price: 37000,
       horsepower: 201
     },
     {
       name: 'Audi A4',
       image: 'assets/assetsa4.png',
-      power: 245,
-      acceleration: '6.3 s',
-      topSpeed: 155,
+      power: 261,
+      acceleration: '5.2 s',
+      topSpeed: 210,
       fuel: 'Petrol',
       bodyType: 'A4',
       transmission: 'Automatic',
-      driveTrain: 'FWD',
+      driveTrain: 'AWD',
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 4500000,
-      horsepower: 245
+      price: 42000,
+      horsepower: 261
     },
     {
       name: 'Audi A8',
       image: 'assets/assetsa8.webp',
-      power: 340,
-      acceleration: '5.5 s',
-      topSpeed: 155,
+      power: 335,
+      acceleration: '5.6 s',
+      topSpeed: 250,
       fuel: 'Petrol',
       bodyType: 'A8',
       transmission: 'Automatic',
-      driveTrain: 'FWD',
+      driveTrain: 'AWD',
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 4500000,
-      horsepower: 245
+      price: 90000,
+      horsepower: 335
     },
     {
       name: 'Audi Q3',
       image: 'assets/assetsq3.webp',
-      power: 201,
-      acceleration: '7.4 s',
-      topSpeed: 155,
+      power: 228,
+      acceleration: '7.0 s',
+      topSpeed: 210,
       fuel: 'Petrol',
       bodyType: 'Q3',
       transmission: 'Automatic',
-      driveTrain: 'FWD',
+      driveTrain: 'AWD',
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 4000000,
-      horsepower: 201
+      price: 38000,
+      horsepower: 228
     },
     {
       name: 'Audi Q3 Sportback',
       image: 'assets/assetsq3sportback.webp',
-      power: 201,
-      acceleration: '7.4 s',
-      topSpeed: 155,
+      power: 228,
+      acceleration: '7.0 s',
+      topSpeed: 210,
       fuel: 'Petrol',
       bodyType: 'Q3',
       transmission: 'Automatic',
-      driveTrain: 'FWD',
+      driveTrain: 'AWD',
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 4000000,
-      horsepower: 201
+      price: 39500,
+      horsepower: 228
     },
     {
       name: 'Audi Q5',
       image: 'assets/assetsq5.webp',
-      power: 245,
-      acceleration: '6.1 s',
-      topSpeed: 155,
+      power: 261,
+      acceleration: '5.7 s',
+      topSpeed: 220,
       fuel: 'Petrol',
       bodyType: 'Q5',
       transmission: 'Automatic',
@@ -153,31 +119,31 @@ export class Audicarmodel implements OnInit {
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 5500000,
-      horsepower: 245
+      price: 45000,
+      horsepower: 261
     },
     {
       name: 'Audi Q6 e-tron',
       image: 'assets/assetsq6etron.webp',
-      power: 245,
-      acceleration: '6.1 s',
-      topSpeed: 155,
-      fuel: 'Petrol',
+      power: 382,
+      acceleration: '5.9 s',
+      topSpeed: 210,
+      fuel: 'Electric',
       bodyType: 'Q6 e-tron',
       transmission: 'Automatic',
       driveTrain: 'AWD',
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 5500000,
-      horsepower: 245
+      price: 66000,
+      horsepower: 382
     },
     {
       name: 'Audi Q7',
       image: 'assets/assetsq7.webp',
-      power: 340,
-      acceleration: '5.9 s',
-      topSpeed: 155,
+      power: 335,
+      acceleration: '5.6 s',
+      topSpeed: 250,
       fuel: 'Petrol',
       bodyType: 'Q7',
       transmission: 'Automatic',
@@ -185,15 +151,15 @@ export class Audicarmodel implements OnInit {
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 8500000,
-      horsepower: 340
+      price: 60000,
+      horsepower: 335
     },
     {
       name: 'Audi Q8',
       image: 'assets/assetsq8.webp',
-      power: 340,
-      acceleration: '5.5 s',
-      topSpeed: 155,
+      power: 335,
+      acceleration: '5.6 s',
+      topSpeed: 250,
       fuel: 'Petrol',
       bodyType: 'Q8',
       transmission: 'Automatic',
@@ -201,15 +167,15 @@ export class Audicarmodel implements OnInit {
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 9500000,
-      horsepower: 340
+      price: 74000,
+      horsepower: 335
     },
     {
-      name: 'Audi R8',
+      name: 'Audi R8 Coupe',
       image: 'assets/assetsr8.png',
-      power: 620,
+      power: 602,
       acceleration: '3.1 s',
-      topSpeed: 330,
+      topSpeed: 331,
       fuel: 'Petrol',
       bodyType: 'R8',
       transmission: 'Automatic',
@@ -217,15 +183,15 @@ export class Audicarmodel implements OnInit {
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 25000000,
-      horsepower: 620
+      price: 160000,
+      horsepower: 602
     },
     {
       name: 'Audi e-tron GT',
       image: 'assets/assetsetrongt.webp',
-      power: 408,
-      acceleration: '5.7 s',
-      topSpeed: 200,
+      power: 522,
+      acceleration: '3.9 s',
+      topSpeed: 245,
       fuel: 'Electric',
       bodyType: 'e-tron GT',
       transmission: 'Automatic',
@@ -233,15 +199,15 @@ export class Audicarmodel implements OnInit {
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 8000000,
-      horsepower: 408
+      price: 105000,
+      horsepower: 522
     },
     {
-      name: 'Audi RS3 limousine',
+      name: 'Audi RS3 Limousine',
       image: 'assets/assetsrs3limousine.webp',
-      power: 400,
-      acceleration: '3.8 s',
-      topSpeed: 155,
+      power: 401,
+      acceleration: '3.6 s',
+      topSpeed: 250,
       fuel: 'Petrol',
       bodyType: 'RS3',
       transmission: 'Automatic',
@@ -249,15 +215,15 @@ export class Audicarmodel implements OnInit {
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 8500000,
-      horsepower: 400
+      price: 62000,
+      horsepower: 401
     },
     {
       name: 'Audi RS3 Sportback',
       image: 'assets/assetsrs3.webp',
-      power: 400,
-      acceleration: '3.8 s',
-      topSpeed: 155,
+      power: 401,
+      acceleration: '3.6 s',
+      topSpeed: 250,
       fuel: 'Petrol',
       bodyType: 'RS3',
       transmission: 'Automatic',
@@ -265,119 +231,8 @@ export class Audicarmodel implements OnInit {
       country: 'Germany',
       brand: 'Audi',
       year: 2023,
-      price: 8500000,
-      horsepower: 400
-    },
+      price: 61500,
+      horsepower: 401
+    }
   ];
-
-  // ================= FILTER STATE =================
-  filteredCars: Car[] = [...this.cars];
-
-  searchText = '';
-
-  selectedBodyTypes: string[] = [];
-  selectedTransmissions: string[] = [];
-  selectedDriveTrains: string[] = [];
-
-  selectedCountry = 'all';
-  selectedPrice = 'all';
-  selectedBrand = 'all';
-  selectedYear = 'all';
-  selectedHorsepower = 'all';
-
-  // ================= FILTER FUNCTION =================
-  filterCars() {
-    this.filteredCars = this.cars.filter(car => {
-
-      const searchMatch =
-        this.searchText === '' ||
-        car.name.toLowerCase().includes(this.searchText.toLowerCase());
-
-      const bodyMatch =
-        this.selectedBodyTypes.length === 0 ||
-        this.selectedBodyTypes.includes(car.bodyType);
-
-      const transMatch =
-        this.selectedTransmissions.length === 0 ||
-        this.selectedTransmissions.includes(car.transmission);
-
-      const driveMatch =
-        this.selectedDriveTrains.length === 0 ||
-        this.selectedDriveTrains.includes(car.driveTrain);
-
-      const countryMatch =
-        this.selectedCountry === 'all' ||
-        car.country === this.selectedCountry;
-
-      const brandMatch =
-        this.selectedBrand === 'all' ||
-        car.brand === this.selectedBrand;
-
-      const yearMatch =
-        this.selectedYear === 'all' ||
-        car.year === +this.selectedYear;
-
-      let priceMatch = false;
-      if (this.selectedPrice === 'all') priceMatch = true;
-      else if (this.selectedPrice === '1') priceMatch = car.price < 2000000;
-      else if (this.selectedPrice === '2') priceMatch = car.price <= 5000000;
-      else if (this.selectedPrice === '3') priceMatch = car.price > 5000000;
-
-      let hpMatch = false;
-      if (this.selectedHorsepower === 'all') hpMatch = true;
-      else if (this.selectedHorsepower === 'low') hpMatch = car.power < 300;
-      else if (this.selectedHorsepower === 'medium') hpMatch = car.power <= 450;
-      else if (this.selectedHorsepower === 'high') hpMatch = car.power > 450;
-
-      return (
-        searchMatch &&
-        bodyMatch &&
-        transMatch &&
-        driveMatch &&
-        countryMatch &&
-        brandMatch &&
-        yearMatch &&
-        priceMatch &&
-        hpMatch
-      );
-    });
-  }
-
-  // ================= CHECKBOX HANDLERS =================
-  onBodyTypeChange(event: Event) {
-    const target = event.target as HTMLInputElement;
-    const value = target.value;
-
-    if (target.checked) this.selectedBodyTypes.push(value);
-    else this.selectedBodyTypes = this.selectedBodyTypes.filter(t => t !== value);
-
-    this.filterCars();
-  }
-
-  onTransmissionChange(event: Event) {
-    const target = event.target as HTMLInputElement;
-    const value = target.value;
-
-    if (target.checked) this.selectedTransmissions.push(value);
-    else this.selectedTransmissions = this.selectedTransmissions.filter(t => t !== value);
-
-    this.filterCars();
-  }
-
-  onDriveTrainChange(event: Event) {
-    const target = event.target as HTMLInputElement;
-    const value = target.value;
-
-    if (target.checked) this.selectedDriveTrains.push(value);
-    else this.selectedDriveTrains = this.selectedDriveTrains.filter(t => t !== value);
-
-    this.filterCars();
-  }
-  isSidebarOpen: boolean = false;
-
-toggleSidebar() {
-  this.isSidebarOpen = !this.isSidebarOpen;
 }
-}
-
-

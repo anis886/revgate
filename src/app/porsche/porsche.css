@@ -1,82 +1,42 @@
-
-.navbar-toggler{
-    border: none;
-}
-.navbar-brand{
-    position: relative;
-}
-.navbar-brand::after{
-    content: "AUTOMOTIVE";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    font-size: 8px;
-    color: red;
-}
-.nav-link{
-    position: relative;
-    transition: 0.5s;
-    color: black;
-    margin-top: 10px;
-    border-radius: 8px;
-    padding-left: 10px;
-    font-size: 1.30rem;
-}
-.nav-link:hover{
-    transform: scale(1.05);
-    border: 1px solid red;
-    border-radius: 8px;
+:host {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
-/* ========== MOBILE FIXES ========== */
-@media (max-width: 991px) {
-
-.nav-justified{
-    position: relative;
-    transition: 0.5s;
-    color: black;
-    text-decoration: none;
-    font-size: 35px;
-}
-.navbar-brand{
-    position: relative;
-    font-size: 50px;
-}
-.navbar-brand::after{
-    content: "AUTOMOTIVE";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    font-size: 15px;
-    color: red;
-}
-.navbar-toggler-icon{
-    font-size: 50px;
-}
+.landing {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
 }
 
+.landing video {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-.navbar .logoporsche{
-    position: absolute;
-    left: 50%;
-    height: 30px;
-    transform: translateX(-50%);
+.landing .content {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  right: 10%;
+  max-width: 90%;
 }
- 
-.landing video{
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-}
-.landing .content{
-    position: absolute;
-    top: 30%;
-    left: 10%;
-}
-.landing .content h1{
-    font-size: 6.5rem;
-    color: #fff;
-    font-family:inherit;
+
+.landing .content h1 {
+  font-size: clamp(2rem, 10vw, 6.5rem);
+  line-height: 1.05;
+  color: #fff;
+  font-family: inherit;
+  margin: 0;
+  word-break: break-word;
 }
 
 .landing .content a{
@@ -93,18 +53,23 @@
 .landing .content a:hover{
     background-color: rgba(255, 255, 255, 0.063);
 }
-.container{
-    max-width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: black;
-    flex-wrap: wrap;
+.container {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background-color: black;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0 1rem 3rem;
+  box-sizing: border-box;
 }
-.container .cards{
-    margin-top: 50px;
-    width: 600px;
-    height: 600px;
+
+.container .cards {
+  margin-top: 50px;
+  width: min(600px, 100%);
+  height: clamp(320px, 85vw, 600px);
     position: relative;
     border-radius: 10px;
     transition: 0.5s;
@@ -165,30 +130,78 @@
     transform: translate(-50%);
     color: gray;
 }
-.container .cards:hover{
-    width: 650px;
+.container .cards:hover {
+  width: min(650px, 100%);
 }
 
 @media (max-width: 991px) {
+  .landing {
+    height: min(100vh, 100dvh);
+  }
 
-    .container{
-        flex-direction: column;
-    }
-    .container .cards{
-        width: 90%;
-        height: 400px;
-    }
-    .container .cards:hover{
-        width: 90%;
-    }
-   .container .cards p{
-    position: absolute;
-    font-family: Arial, Helvetica, sans-serif;
+  .landing .content {
+    top: 28%;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    text-align: center;
+    width: min(92%, 520px);
+    max-width: 92%;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container .cards {
+    width: min(100%, 520px);
+    height: clamp(300px, 70vw, 420px);
+    margin-top: 2rem;
+  }
+
+  .container .cards:hover {
+    width: min(100%, 520px);
+  }
+
+  .container .cards p {
     top: 70%;
     left: 20px;
-    padding: 2px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.518);
-    }
+    right: 20px;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+  }
 
-} 
+  .container .cards .footer h2 {
+    font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+    max-width: 75%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .landing .content {
+    top: 22%;
+  }
+
+  .landing .content a {
+    display: inline-block;
+    margin-top: 0.75rem;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .container .cards {
+    height: clamp(280px, 88vw, 380px);
+  }
+
+  .container .cards .footer {
+    bottom: 48px;
+    left: 16px;
+    right: 16px;
+  }
+
+  .container .cards .footer .btn {
+    position: relative;
+    top: auto;
+    margin-top: 0.5rem;
+  }
+}

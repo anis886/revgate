@@ -1,42 +1,118 @@
-<nav class="navbar bg-white fixed-top">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      <a class="navbar-brand ms-3" href="#">Revgate</a>
-    </button>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+<nav class="car-navbar-container" [ngClass]="{'scrolled': isScrolled, 'mobile-menu-active': isMobileMenuOpen}">
+  <div class="navbar-wrapper">
+    <div class="navbar-brand-section">
+      <button type="button" class="btn text-white p-0 border-0 me-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <i class="fas fa-bars" style="font-size: 1.25rem;"></i>
+      </button>
+      <a routerLink="/main/home" class="home-logo-link">
+        <img *ngIf="brandLogo" [src]="brandLogo" [alt]="brandName" class="brand-nav-logo" />
+      </a>
+      <div class="brand-text-container">
+        <span class="brand-nav-name">{{ brandName }}</span>
+        <span *ngIf="carName" class="brand-nav-separator">|</span>
+        <span *ngIf="carName" class="car-nav-name">{{ carName }}</span>
       </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  href="#newBeasts">New Beasts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#aboutus">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contactus">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/main/performance" data-bs-dismiss="offcanvas" href="#">Performance</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/main/electric" data-bs-dismiss="offcanvas" href="#">Electric</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/main/luxury" data-bs-dismiss="offcanvas" href="#">Luxury</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/main/suv" data-bs-dismiss="offcanvas" href="#">SUV</a>
-          </li>
-        </ul>
-      </div>
+    </div>
+
+    <div *ngIf="sections && sections.length > 0" class="navbar-links-section">
+      <a *ngFor="let sec of sections" class="section-nav-link" (click)="scrollToSection(sec.id)">
+        {{ sec.label }}
+      </a>
+    </div>
+
+    <div class="navbar-actions-section">
+      <a *ngIf="!isHomeRoute()" [routerLink]="backRoute" class="btn-back-nav">
+        <i class="fas fa-chevron-left"></i>
+        <span>{{ backLabel }}</span>
+      </a>
+      <button *ngIf="sections && sections.length > 0" class="mobile-toggle-btn" (click)="toggleMobileMenu()" [attr.aria-expanded]="isMobileMenuOpen" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="isMobileMenuOpen && sections && sections.length > 0" class="mobile-dropdown-menu">
+    <div class="mobile-links-wrapper">
+      <a *ngFor="let sec of sections" class="mobile-section-link" (click)="scrollToSection(sec.id)">
+        {{ sec.label }}
+      </a>
     </div>
   </div>
 </nav>
+
+<!-- Offcanvas Navigation Menu (Outside nav container for proper stacking/overlay) -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">REVGATE</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column justify-content-between text-center align-items-center">
+    <div class="my-auto w-100 container">
+      <div class="row justify-content-center g-5">
+        <!-- Vehicles column -->
+        <div class="col-12 col-md-5 d-flex flex-column align-items-center">
+          <div class="menu-section-label">VEHICLES</div>
+          <ul class="navbar-nav w-100 align-items-center">
+            <li class="nav-item w-100">
+              <a class="nav-link-porsche text-center justify-content-center" routerLink="/main/performance" data-bs-dismiss="offcanvas">
+                <span>Performance</span>
+              </a>
+            </li>
+            <li class="nav-item w-100">
+              <a class="nav-link-porsche text-center justify-content-center" routerLink="/main/electric" data-bs-dismiss="offcanvas">
+                <span>Electric</span>
+              </a>
+            </li>
+            <li class="nav-item w-100">
+              <a class="nav-link-porsche text-center justify-content-center" routerLink="/main/luxury" data-bs-dismiss="offcanvas">
+                <span>Luxury</span>
+              </a>
+            </li>
+            <li class="nav-item w-100">
+              <a class="nav-link-porsche text-center justify-content-center" routerLink="/main/suv" data-bs-dismiss="offcanvas">
+                <span>SUV</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Discover column -->
+        <div class="col-12 col-md-5 d-flex flex-column align-items-center">
+          <div class="menu-section-label">DISCOVER</div>
+          <ul class="navbar-nav w-100 align-items-center">
+            <li class="nav-item w-100">
+              <a class="nav-link-porsche text-center justify-content-center" routerLink="/main/home" data-bs-dismiss="offcanvas">
+                <span>Home</span>
+              </a>
+            </li>
+            <li class="nav-item w-100">
+              <a class="nav-link-porsche text-center justify-content-center" routerLink="/main/home" fragment="newBeasts" data-bs-dismiss="offcanvas">
+                <span>New Beasts</span>
+              </a>
+            </li>
+            <li class="nav-item w-100">
+              <a class="nav-link-porsche text-center justify-content-center" routerLink="/main/home" fragment="aboutus" data-bs-dismiss="offcanvas">
+                <span>About Us</span>
+              </a>
+            </li>
+            <li class="nav-item w-100">
+              <a class="nav-link-porsche text-center justify-content-center" routerLink="/main/home" fragment="contactus" data-bs-dismiss="offcanvas">
+                <span>Contact Us</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="offcanvas-menu-footer border-top pt-3 mt-4 w-100 px-md-5 max-width-container">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="footer-brand">REVGATE AUTOMOTIVE</span>
+        <span class="footer-lang"><i class="fas fa-globe me-1"></i> EN</span>
+      </div>
+      <p class="footer-copyright text-muted mb-0">© 2026 RevGate. All rights reserved.</p>
+    </div>
+  </div>
+</div>

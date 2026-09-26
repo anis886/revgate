@@ -21,6 +21,7 @@ export class Suv implements OnInit {
   
   carId!: string;
   selectedBrandTypes: string[] = [];
+  searchText = '';
   
   constructor(private route: ActivatedRoute) {}
   
@@ -40,7 +41,7 @@ export class Suv implements OnInit {
     },
     {
       name: 'BMW',
-      image: 'assets/assetscarimg4.png',
+      image: 'assets/assetsbmwlogo.png',
       brandType: 'Europe',
       id: 'bmw',
       route: 'bmw'
@@ -54,7 +55,7 @@ export class Suv implements OnInit {
     },
     {
       name: 'Audi',
-      image: 'assets/assetscarimg2.png',
+      image: 'assets/assetsaudilogo.png',
       brandType: 'Europe',
       id: 'audi',
       route: 'audi'
@@ -263,7 +264,7 @@ export class Suv implements OnInit {
     },
     {
       name: 'BAIC',
-      image: 'assets/assetscarimg3.png',
+      image: 'assets/assetsbaiclogo.png',
       brandType: 'China',
       id: 'baic',
       route: 'baic'
@@ -272,7 +273,7 @@ export class Suv implements OnInit {
     // 🇰🇷 Korea
     {
       name: 'Hyundai',
-      image: 'assetshyundai.png',
+      image: 'assets/assetshyundai.png  ',
       brandType: 'Korea',
       id: 'hyundai',
       route: 'hyundai'
@@ -295,11 +296,23 @@ export class Suv implements OnInit {
   ];
   
   get filteredCars(): Car[] {
-    return this.cars.filter(car => 
-      (this.selectedBrandTypes.length === 0 || this.selectedBrandTypes.includes(car.brandType))
-    );
+    return this.cars.filter(car => {
+      const searchMatch =
+        this.searchText.trim() === '' ||
+        car.name.toLowerCase().includes(this.searchText.toLowerCase().trim()) ||
+        car.brandType.toLowerCase().includes(this.searchText.toLowerCase().trim());
+      const regionMatch =
+        this.selectedBrandTypes.length === 0 || this.selectedBrandTypes.includes(car.brandType);
+      return searchMatch && regionMatch;
+    });
   }
   
+  get activeFiltersCount(): number {
+    let count = this.selectedBrandTypes.length;
+    if (this.searchText.trim() !== '') count++;
+    return count;
+  }
+
   // Handlers for checkboxes
   onBrandTypeChange(event: Event) {
     const target = event.target as HTMLInputElement;
@@ -310,7 +323,24 @@ export class Suv implements OnInit {
       this.selectedBrandTypes = this.selectedBrandTypes.filter(t => t !== value);
     }
   }
+
+  toggleBrandType(type: string) {
+    if (this.selectedBrandTypes.includes(type)) {
+      this.selectedBrandTypes = this.selectedBrandTypes.filter(t => t !== type);
+    } else {
+      this.selectedBrandTypes.push(type);
+    }
   }
+
+  removeBrandType(region: string) {
+    this.selectedBrandTypes = this.selectedBrandTypes.filter(r => r !== region);
+  }
+
+  clearAllFilters() {
+    this.selectedBrandTypes = [];
+    this.searchText = '';
+  }
+}
 
 
 

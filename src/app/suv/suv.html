@@ -1,36 +1,111 @@
-<div class="container-fluid">
+<div class="container-fluid main-layout-container">
   <div class="row">
+    <!-- Main Content Area -->
+    <main class="col-12 main-content-panel">
+      <!-- Page Header & Toolbar -->
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-stretch align-items-md-center gap-3 mb-4 section-header">
+        <div>
+          <h2 class="car-section-title mb-1">SUV Car Brands</h2>
+          <p class="text-muted mb-0">{{filteredCars.length}} brands matching your criteria</p>
+        </div>
+        
+        <!-- Filter & Search Toolbar -->
+        <div class="d-flex flex-column flex-sm-row gap-2 align-items-stretch">
+          <div class="position-relative search-input-wrapper flex-grow-1">
+            <i class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+            <input 
+              type="text" 
+              class="form-control ps-5 search-input" 
+              placeholder="Search brand or region..." 
+              [(ngModel)]="searchText"
+            />
+            <button *ngIf="searchText" class="btn btn-sm btn-clear-search position-absolute top-50 end-0 translate-middle-y me-2" (click)="searchText = ''" type="button">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
 
-    <!-- Sidebar -->
-    <div class="col-lg-3 sidebar">
-
-
-      <h6 class="mt-4">Regions</h6>
-      <div class="form-check" *ngFor="let type of ['Europe', 'Japan', 'Korea', 'China', 'USA']">
-        <input class="form-check-input" type="checkbox" [value]="type" (change)="onBrandTypeChange($event)">
-        <label class="form-check-label">{{type}}</label>
+          <button class="btn btn-outline-dark filter-trigger-btn position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilters" aria-controls="offcanvasFilters">
+            <i class="fas fa-sliders-h me-2"></i> Filter
+            <span *ngIf="activeFiltersCount > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              {{activeFiltersCount}}
+            </span>
+          </button>
+        </div>
       </div>
 
+      <!-- Active Filters Pillbox -->
+      <div *ngIf="activeFiltersCount > 0" class="d-flex flex-wrap gap-2 mb-4 active-filters-pillbox">
+        <span *ngIf="searchText" class="badge active-filter-badge">
+          Search: "{{searchText}}" <i class="fas fa-times ms-1 remove-filter-icon" (click)="searchText = ''"></i>
+        </span>
+        <span *ngFor="let region of selectedBrandTypes" class="badge active-filter-badge">
+          {{region}} <i class="fas fa-times ms-1 remove-filter-icon" (click)="removeBrandType(region)"></i>
+        </span>
+        <button (click)="clearAllFilters()" class="btn btn-sm btn-outline-danger btn-clear-pill">
+          Reset All
+        </button>
+      </div>
 
-    </div>
+      <!-- No Results State -->
+      <div *ngIf="filteredCars.length === 0" class="no-results-card text-center py-5">
+        <i class="fas fa-car-side fa-3x text-muted mb-3"></i>
+        <h4>No Matches Found</h4>
+        <p class="text-muted">Try adjusting your filters to find your favorite SUV brand.</p>
+        <button (click)="clearAllFilters()" class="btn btn-dark mt-2">Reset Filters</button>
+      </div>
 
-    <!-- Cars -->
-    <div class="col-md-9 offset-md-2 col-lg-9 offset-lg-2">
-      <h3 class="car-brands">Car Brands</h3>
-      <div class="row g-4">
-        <div class="col-md-6 col-xl-4" *ngFor="let car of filteredCars">
+      <!-- Brands Grid (Takes full width layout, 4 columns on large screens) -->
+      <div class="row g-4 car-grid">
+        <div class="col-12 col-sm-6 col-md-4 col-xl-3 card-column" *ngFor="let car of filteredCars">
           <div class="card car-card h-100">
-            <a [routerLink]="['/main', car.route]" class="car-item">
-                <img [src]="car.image" class="car-img">
-              <div class="card-body">
-                <h5 class="card-title">{{car.name}}</h5>
-                <p class="card-text">{{car.brandType}}</p>
+            <a [routerLink]="['/main', car.route]" class="car-item text-decoration-none">
+              <div class="car-img-container">
+                <img [src]="car.image" class="car-img" [alt]="car.name + ' Logo'">
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title text-dark mb-1">{{car.name}}</h5>
+                <span class="badge bg-light text-muted">{{car.brandType}}</span>
               </div>
             </a>
           </div>
         </div>
       </div>
-    </div>
+    </main>
+  </div>
+</div>
 
+<!-- Unified Offcanvas Filters Drawer (Full Screen Width & Height) -->
+<div class="offcanvas offcanvas-end offcanvas-filters-drawer" tabindex="-1" id="offcanvasFilters" aria-labelledby="offcanvasFiltersLabel">
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title font-title" id="offcanvasFiltersLabel">Filter Brands</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  
+  <div class="offcanvas-body scrollable-offcanvas-body">
+    <div class="container-fluid py-2">
+      <div class="row">
+        <!-- Regions Column -->
+        <div class="col-12">
+          <div class="filter-group mb-4">
+            <h6 class="filter-subtitle">Regions</h6>
+            <div class="pills-grid">
+              <button *ngFor="let region of ['Europe', 'Japan', 'Korea', 'China', 'USA']"
+                      type="button"
+                      class="btn-pill"
+                      [class.active]="selectedBrandTypes.includes(region)"
+                      (click)="toggleBrandType(region)">
+                {{region}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Offcanvas Footer with Reset & Result Count -->
+  <div class="offcanvas-footer p-3 border-top d-flex justify-content-end gap-3 px-5">
+    <button *ngIf="activeFiltersCount > 0" (click)="clearAllFilters()" class="btn btn-outline-danger px-4 py-2" style="max-width: 200px;">Reset All</button>
+    <button class="btn btn-dark px-5 py-2" data-bs-dismiss="offcanvas" style="max-width: 300px;">Show {{filteredCars.length}} Brands</button>
   </div>
 </div>
