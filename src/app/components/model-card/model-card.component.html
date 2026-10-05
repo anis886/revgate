@@ -1,0 +1,28 @@
+<article class="model-card">
+  <ng-container *ngIf="isInternalLink; else externalImgLink">
+    <a class="model-image-link" [routerLink]="model.link" [attr.aria-label]="'View ' + model.name">
+      <img [src]="model.image" [alt]="model.name" loading="lazy">
+    </a>
+  </ng-container>
+  <ng-template #externalImgLink>
+    <a class="model-image-link" [href]="model.link || '#experience'" [attr.aria-label]="'View ' + model.name">
+      <img [src]="model.image" [alt]="model.name" loading="lazy">
+    </a>
+  </ng-template>
+
+  <div class="model-copy">
+    <h3>{{ model.name }}</h3>
+    <ng-container *ngIf="isInternalLink; else externalBtnLink">
+      <a class="micro-link" [routerLink]="model.link">
+        <span>VIEW MODEL</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5"/></svg>
+      </a>
+    </ng-container>
+    <ng-template #externalBtnLink>
+      <a class="micro-link" [href]="model.link || '#experience'">
+        <span>VIEW MODEL</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5"/></svg>
+      </a>
+    </ng-template>
+  </div>
+</article>

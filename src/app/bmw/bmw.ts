@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { PerformanceBrandComponent } from '../pages/performance-brand/performance-brand.component';
 
 @Component({
   selector: 'app-bmw',
-  imports: [RouterLink],
+  standalone: true,
+  imports: [PerformanceBrandComponent],
   templateUrl: './bmw.html',
-  styleUrl: './bmw.css',
+  styleUrl: './bmw.css'
 })
-export class Bmw {
-
-}
+export class Bmw {}

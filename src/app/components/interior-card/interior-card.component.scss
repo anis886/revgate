@@ -1,0 +1,78 @@
+:host {
+  display: block;
+}
+
+.interior-card {
+  display: flex;
+  flex-direction: column;
+  background: #111;
+  height: 100%;
+}
+
+.photo-link {
+  display: block;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+.photo-link img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.interior-card:hover .photo-link img {
+  transform: scale(1.02);
+}
+
+.interior-meta {
+  padding: 16px 18px 18px;
+  display: flex;
+  align-items: center;
+  justify-space: space-between;
+  gap: 16px;
+  background: #111;
+  color: #fff;
+  flex: 1;
+}
+
+.interior-meta h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.interior-meta p {
+  margin: 4px 0 0;
+  color: #8c8c8c;
+  font-size: 10px;
+  letter-spacing: .08em;
+  font-weight: 700;
+}
+
+.micro-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+
+.micro-link svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 220ms ease;
+}
+
+.interior-card:hover .micro-link svg {
+  transform: translateX(3px);
+}

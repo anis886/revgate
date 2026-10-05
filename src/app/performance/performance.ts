@@ -33,7 +33,7 @@ export class Performance implements OnInit {
   }
   
   cars: Car[] = [
-    // Sorted alphabetically A to Z
+    // Performance Category Brands Only (Sorted alphabetically A to Z)
     {
       name: 'Alfa Romeo',
       image: 'assets/assetsalfaromeologocolor.png',
@@ -70,20 +70,6 @@ export class Performance implements OnInit {
       route: 'bmw'
     },
     {
-      name: 'BYD',
-      image: 'assets/assetscarimg5.png',
-      brandType: 'China',
-      id: 'byd',
-      route: 'byd'
-    },
-    {
-      name: 'Cadillac',
-      image: 'assets/assetscarimg6.png',
-      brandType: 'USA',
-      id: 'cadillac',
-      route: 'cadillac'
-    },
-    {
       name: 'Chevrolet',
       image: 'assets/assetscarimg7.png',
       brandType: 'USA',
@@ -98,20 +84,6 @@ export class Performance implements OnInit {
       route: 'corvette'
     },
     {
-      name: 'Chery',
-      image: 'assets/assetscarimg8.png',
-      brandType: 'China',
-      id: 'chery',
-      route: 'chery'
-    },
-    {
-      name: 'Changan',
-      image: 'assets/assetscarimg9.png',
-      brandType: 'China',
-      id: 'changan',
-      route: 'changan'
-    },
-    {
       name: 'Citroën',
       image: 'assets/assetscarimg10.png',
       brandType: 'Europe',
@@ -124,20 +96,6 @@ export class Performance implements OnInit {
       brandType: 'Europe',
       id: 'cupra',
       route: 'cupra'
-    },
-    {
-      name: 'DS Automobiles',
-      image: 'assets/assetscarimg12.png',
-      brandType: 'Europe',
-      id: 'ds_automobiles',
-      route: 'ds-automobiles'
-    },
-    {
-      name: 'Dongfeng',
-      image: 'assets/assetsdongfenglogo.png',
-      brandType: 'China',
-      id: 'dongfeng',
-      route: 'dongfeng'
     },
     {
       name: 'Dodge',
@@ -168,34 +126,6 @@ export class Performance implements OnInit {
       route: 'ford'
     },
     {
-      name: 'Geely',
-      image: 'assets/assetsgeelylogo.png',
-      brandType: 'China',
-      id: 'geely',
-      route: 'geely'
-    },
-    {
-      name: 'Genesis',
-      image: 'assets/assetsGenesislogo.svg',
-      brandType: 'Korea',
-      id: 'genesis',
-      route: 'genesis'
-    },
-    {
-      name: 'Great Wall Motors',
-      image: 'assets/assetsgreatwallmotorslogo.png',
-      brandType: 'China',
-      id: 'great_wall_motors',
-      route: 'great-wall-motors'
-    },
-    {
-      name: 'Haval',
-      image: 'assets/assetshavallogo.png',
-      brandType: 'China',
-      id: 'haval',
-      route: 'haval'
-    },
-    {
       name: 'Honda',
       image: 'assets/assetsHonda.svg',
       brandType: 'Japan',
@@ -203,25 +133,11 @@ export class Performance implements OnInit {
       route: 'honda'
     },
     {
-      name: 'Hyundai',
-      image: 'assets/assetshyundai.png',
-      brandType: 'Korea',
-      id: 'hyundai',
-      route: 'hyundai'
-    },
-    {
       name: 'Infiniti',
       image: 'assets/assetsinfinitilogo.png',
       brandType: 'Japan',
       id: 'infiniti',
       route: 'infiniti'
-    },
-    {
-      name: 'Jaguar',
-      image: 'assets/assetsjaguarlogo.png',
-      brandType: 'Europe',
-      id: 'jaguar',
-      route: 'jaguar'
     },
     {
       name: 'Jeep',
@@ -238,39 +154,11 @@ export class Performance implements OnInit {
       route: 'jetour'
     },
     {
-      name: 'Kia',
-      image: 'assets/assetskialogo.svg',
-      brandType: 'Korea',
-      id: 'kia',
-      route: 'kia'
-    },
-    {
       name: 'Lamborghini',
       image: 'assets/assetscarlam.png',
       brandType: 'Europe',
       id: 'lamborghini',
       route: 'lamborghini'
-    },
-    {
-      name: 'Land Rover',
-      image: 'assets/assetslandroverlogo.svg',
-      brandType: 'Europe',
-      id: 'land_rover',
-      route: 'land-rover'
-    },
-    {
-      name: 'Lexus',
-      image: 'assets/assetslexuslogo.png',
-      brandType: 'Japan',
-      id: 'lexus',
-      route: 'lexus'
-    },
-    {
-      name: 'Maserati',
-      image: 'assets/assetsmaseratilogo.png',
-      brandType: 'Europe',
-      id: 'maserati',
-      route: 'maserati'
     },
     {
       name: 'Mazda',
@@ -280,18 +168,11 @@ export class Performance implements OnInit {
       route: 'mazda'
     },
     {
-      name: 'Mercedes',
+      name: 'Mercedes-AMG',
       image: 'assets/assetsmercedeslogo.png',
       brandType: 'Europe',
       id: 'mercedes',
       route: 'mercedes'
-    },
-    {
-      name: 'Mini',
-      image: 'assets/assetsminilogo.svg',
-      brandType: 'Europe',
-      id: 'mini',
-      route: '/main/mini'
     },
     {
       name: 'Mitsubishi',
@@ -299,13 +180,6 @@ export class Performance implements OnInit {
       brandType: 'Japan',
       id: 'mitsubishi',
       route: 'mitsubishi'
-    },
-    {
-      name: 'MG',
-      image: 'assets/assetsmglogo.png',
-      brandType: 'China',
-      id: 'mg',
-      route: 'mg'
     },
     {
       name: 'Mclaren',
@@ -322,32 +196,11 @@ export class Performance implements OnInit {
       route: 'nissan'
     },
     {
-      name: 'Opel',
-      image: 'assets/assetsopellogo.svg',
-      brandType: 'Europe',
-      id: 'opel',
-      route: 'opel'
-    },
-    {
-      name: 'Peugeot',
-      image: 'assets/assetspeugeotlogo.avif',
-      brandType: 'Europe',
-      id: 'peugeot',
-      route: 'peugeot'
-    },
-    {
       name: 'Porsche',
       image: 'assets/assetsporschelogo.png',
       brandType: 'Europe',
       id: 'porsche',
       route: 'porsche'
-    },
-    {
-      name: 'Renault',
-      image: 'assets/assetsrenaultlogo.png',
-      brandType: 'Europe',
-      id: 'renault',
-      route: 'renault'
     },
     {
       name: 'Seat',
@@ -378,34 +231,12 @@ export class Performance implements OnInit {
       route: 'suzuki'
     },
     {
-      name: 'Tesla',
-      image: 'assets/assetsteslalogo.png',
-      brandType: 'USA',
-      id: 'tesla',
-      route: 'tesla'
-    },
-    {
       name: 'Toyota',
       image: 'assets/assetstoyotalogo.png',
       brandType: 'Japan',
       id: 'toyota',
       route: 'toyota'
-    },
-    {
-      name: 'Volkswagen',
-      image: 'assets/assetsvolkswagenlogo.png',
-      brandType: 'Europe',
-      id: 'volkswagen',
-      route: 'volkswagen'
-    },
-    {
-      name: 'Volvo',
-      image: 'assets/assetsvolvologo.png',
-      brandType: 'Europe',
-      id: 'volvo',
-      route: 'volvo'
     }
-    
   ];
   
   get filteredCars(): Car[] {
@@ -430,7 +261,6 @@ export class Performance implements OnInit {
     return count;
   }
 
-  // Handlers for checkboxes
   onBrandTypeChange(event: Event) {
     const target = event.target as HTMLInputElement;
     const value = target.value;
@@ -464,5 +294,3 @@ export class Performance implements OnInit {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 }
-
-

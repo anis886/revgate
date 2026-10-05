@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { PerformanceBrandComponent } from '../pages/performance-brand/performance-brand.component';
 
 @Component({
   selector: 'app-alfa-romeo',
-  imports: [RouterLink],
+  standalone: true,
+  imports: [PerformanceBrandComponent],
   templateUrl: './alfa-romeo.html',
   styleUrl: './alfa-romeo.css',
 })
-export class AlfaRomeo {
-
-}
+export class AlfaRomeo {}

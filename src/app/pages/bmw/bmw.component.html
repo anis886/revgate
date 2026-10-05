@@ -1,0 +1,114 @@
+<div class="page" id="top">
+  <main>
+    <div class="breadcrumb" aria-label="Breadcrumb">
+      <span>Performance</span>
+      <span class="slash">/</span>
+      <strong>{{ brand.name }}</strong>
+    </div>
+
+    <section class="intro" aria-labelledby="intro-title">
+      <div class="intro-content">
+        <img class="roundel" [src]="brand.logo" [alt]="brand.name + ' logo'">
+        <div class="intro-divider" aria-hidden="true"></div>
+        <div class="intro-copy">
+          <div class="intro-heading-row">
+            <h1 id="intro-title">{{ brand.tagline }}</h1>
+            <img *ngIf="brand.badgeLogo" class="m-mark" [src]="brand.badgeLogo" [alt]="brand.badgeAlt || (brand.name + ' mark')">
+          </div>
+          <p [innerHTML]="brand.introDescription"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero" [attr.aria-label]="brand.heroAriaLabel || (brand.name + ' performance vehicles')">
+      <img [src]="brand.heroImage" [alt]="brand.heroAlt">
+    </section>
+
+    <section class="explore-strip">
+      <div class="explore-copy">
+        <h2>{{ brand.exploreTitle }}</h2>
+        <p [innerHTML]="brand.exploreDescription"></p>
+      </div>
+      <button class="solid-button" type="button" (click)="scrollToModels()">
+        <span>{{ brand.exploreButtonText || 'EXPLORE MODELS' }}</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5"/></svg>
+      </button>
+    </section>
+
+    <section class="models-section" id="models" aria-labelledby="models-title">
+      <div class="models-toolbar">
+        <h2 id="models-title">{{ brand.modelsTitle }}</h2>
+        <label class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+          <span class="sr-only">Search {{ brand.name }} models</span>
+          <input type="search" [(ngModel)]="searchTerm" [placeholder]="'Search ' + brand.name + ' models...'" autocomplete="off">
+        </label>
+      </div>
+
+      <div class="filters" [attr.aria-label]="'Filter ' + brand.name + ' models'">
+        <button
+          *ngFor="let category of categories"
+          type="button"
+          [class.active]="activeCategory === category"
+          [attr.aria-pressed]="activeCategory === category"
+          (click)="setCategory(category)">
+          {{ category }}
+        </button>
+      </div>
+
+      <div class="model-grid" [class.model-grid--sparse]="filteredModels.length < 3">
+        <app-model-card *ngFor="let model of filteredModels" [model]="model"></app-model-card>
+      </div>
+
+      <p class="empty-state" *ngIf="filteredModels.length === 0">No {{ brand.name }} models match this search.</p>
+    </section>
+
+    <section class="experience-section" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading-row section-heading-row--dark">
+        <h2 id="experience-title">{{ brand.experienceTitle }}</h2>
+        <p [innerHTML]="brand.experienceDescription"></p>
+      </div>
+
+      <div class="interior-grid">
+        <app-interior-card
+          *ngFor="let interior of brand.interiors"
+          [class.interior-card--wide]="interior.isWide"
+          [image]="interior.image"
+          [model]="interior.model"
+          [label]="interior.label"></app-interior-card>
+      </div>
+    </section>
+
+    <section class="expressions-section" id="expressions" aria-labelledby="expressions-title">
+      <div class="section-heading-row">
+        <h2 id="expressions-title">{{ brand.expressionsTitle }}</h2>
+        <p [innerHTML]="brand.expressionsDescription"></p>
+      </div>
+
+      <div class="expression-grid">
+        <a *ngFor="let expression of brand.expressions"
+           [class]="'expression-panel ' + expression.panelClass"
+           [href]="expression.link || '#story'"
+           [attr.aria-label]="expression.label">
+          <img [src]="expression.image" [alt]="expression.alt">
+          <span class="sr-only">{{ expression.label }}</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="story-section" id="story" aria-labelledby="story-title">
+      <img class="story-logo" [src]="brand.logo" [alt]="brand.name + ' logo'">
+      <div class="story-divider" aria-hidden="true"></div>
+      <div class="story-copy">
+        <h2 id="story-title">{{ brand.storyTitle }}</h2>
+        <p [innerHTML]="brand.storyDescription"></p>
+      </div>
+      <a class="story-link" href="#top">
+        <span>{{ brand.storyButtonText || ('DISCOVER ' + brand.name.toUpperCase()) }}</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5"/></svg>
+      </a>
+    </section>
+  </main>
+
+  <app-footer [wordmark]="brand.footerWordmark || (brand.name.toUpperCase() + ' PERFORMANCE')"></app-footer>
+</div>

@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { PerformanceBrandComponent } from '../pages/performance-brand/performance-brand.component';
 
 @Component({
   selector: 'app-astonmartin',
-  imports: [RouterLink],
+  standalone: true,
+  imports: [PerformanceBrandComponent],
   templateUrl: './astonmartin.html',
   styleUrl: './astonmartin.css',
 })
-export class Astonmartin {
-
-}
+export class Astonmartin {}

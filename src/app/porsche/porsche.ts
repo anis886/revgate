@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { PerformanceBrandComponent } from '../pages/performance-brand/performance-brand.component';
 
 @Component({
   selector: 'app-porsche',
   standalone: true,
-  imports: [RouterLink],
+  imports: [PerformanceBrandComponent],
   templateUrl: './porsche.html',
   styleUrl: './porsche.css',
 })
 export class Porsche {
-    ngAfterViewInit() {
+  ngAfterViewInit() {
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 50);

@@ -1,0 +1,65 @@
+.model-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e2e2;
+  background: #fff;
+}
+
+.model-image-link {
+  display: block;
+  background: #eaeaea;
+  overflow: hidden;
+}
+
+.model-image-link img {
+  width: 100%;
+  aspect-ratio: 412 / 248;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.model-card:hover .model-image-link img {
+  transform: scale(1.02);
+}
+
+.model-copy {
+  padding: 16px 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-space: space-between;
+  gap: 16px;
+}
+
+.model-copy h3 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #111;
+}
+
+.micro-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #111;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+
+.micro-link svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 220ms ease;
+}
+
+.model-card:hover .micro-link svg {
+  transform: translateX(3px);
+}

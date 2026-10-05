@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { PerformanceBrandComponent } from '../pages/performance-brand/performance-brand.component';
 
 @Component({
   selector: 'app-audi',
-  imports: [RouterLink],
+  standalone: true,
+  imports: [PerformanceBrandComponent],
   templateUrl: './audi.html',
   styleUrl: './audi.css',
 })
-export class Audi {
-
-}
+export class Audi {}

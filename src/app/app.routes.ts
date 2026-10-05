@@ -22,6 +22,7 @@ import { Baiccarmodel } from './baiccarmodel/baiccarmodel';
 import { Astonmartin } from './astonmartin/astonmartin';
 import { Astonmartincarmodel } from './astonmartincarmodel/astonmartincarmodel';
 import { Bmw7series } from './bmw7series/bmw7series';
+import { PerformanceBrandComponent } from './pages/performance-brand/performance-brand.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'main/home', pathMatch: 'full' },
@@ -38,19 +39,26 @@ export const routes: Routes = [
       { path: 'new-beasts', component: NewBeasts },
       { path: 'aboutus', component: Aboutus },
       { path: 'contactus', component: Contactus },
+
+      // Dedicated Performance brand pages
       { path: 'porsche', component: Porsche },
       { path: 'bmw', component: Bmw },
       { path: 'alfa-romeo', component: AlfaRomeo },
       { path: 'audi', component: Audi },
       { path: 'baic', component: Baic },
       { path: 'astonmartin', component: Astonmartin },
+
+      // Model detail pages
       { path: 'discover-now', component: Astonmartincarmodel },
       { path: 'discover-audi', component: Audicarmodel },
       { path: 'more-info', component: AlfaRomeoCarModel },
       { path: 'explore', component: PorscheCarModel },
       { path: 'discover-more', component: Bmwcarmodel },
       { path: 'bmw7series', component: Bmw7series },
-      { path: 'Explore-ALL-Models', component: Baiccarmodel }
+      { path: 'Explore-ALL-Models', component: Baiccarmodel },
+
+      // Generic route for all other performance brands
+      { path: ':id', component: PerformanceBrandComponent }
     ]
   }
 ];
